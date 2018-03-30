@@ -13,13 +13,25 @@ var fn = 8;
 var q = fl*fn
 addEventListener('scroll', kittyrun)
 
-var cat = [];
-var x = [];
 
-for (var i = 0; i < 10; i++) {
-  cat[i]=i;
+length = 100;
 
+
+// Create an 2D array with 10 columns and 100 rows. Each cell is i++ starting from 0 and ending at 999
+var cat = new Array();
+for(var i = 0; i < length; i++)
+{
+    cat[i] = new Array();
+    for(var j = (i * 10); j < 10 * i + 10; j++)
+        if (cat[i] == null)
+            cat[i] = j;
+        else
+            cat[i].push(j);
 }
+
+
+
+
 
 console.log(cat);
 
@@ -46,44 +58,60 @@ console.log(cat);
 function kittyrun(){
   console.log(window.scrollY);
 
+// Trial of loop method to replace repetative if-else tree
 
+var y = true;
 //----------- cat1--------------//
-
-    if (window.scrollY < fl) {
+  for (var i = 0; y == true; i+=8) {
+    if (window.scrollY >= cat[i][0] && window.scrollY <= cat[i][9]) {
       one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= q && window.scrollY < (q + fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (2*q) && window.scrollY < (2*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (3*q) && window.scrollY < (3*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (4*q) && window.scrollY < (4*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (5*q) && window.scrollY < (5*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (6*q) && window.scrollY < (6*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (7*q) && window.scrollY < (7*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (8*q) && window.scrollY < (8*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (9*q) && window.scrollY < (9*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else if (window.scrollY >= (10*q) && window.scrollY < (10*q+fl) ) {
-      one.style.display = "inline-block";
-    }
-    else
+      y = false;
+    }  else {
       one.style.display = "none";
+      y = false;
+    }
+
+  }
+
+
+
+// if-else tree with cat array method
+
+    // if (window.scrollY >= cat[0][0] && window.scrollY <= cat[0][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[8][0] && window.scrollY <= cat[8][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[16][0] && window.scrollY <= cat[16][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[24][0] && window.scrollY <= cat[24][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[32][0] && window.scrollY <= cat[32][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[40][0] && window.scrollY <= cat[40][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[48][0] && window.scrollY <= cat[48][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[56][0] && window.scrollY <= cat[56][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[64][0] && window.scrollY <= cat[64][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[72][0] && window.scrollY <= cat[72][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else if (window.scrollY >= cat[80][0] && window.scrollY <= cat[80][9]) {
+    //   one.style.display = "inline-block";
+    // }
+    // else
+    //   one.style.display = "none";
 
 
 //----------- cat2--------------//
